@@ -10,24 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SlotMaschine2
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für Login.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Login : Window
     {
-        public MainWindow()
+        public Login()
         {
             InitializeComponent();
-            MainWindow.GetWindow(this);
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            var wnd = new Login();
-            wnd.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            wnd.ShowDialog();
+        }
+
+        private void cmdLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if(tbUsername.Text != "" && tbUsername.Text != null && tbPassword.Text != "" && tbPassword.Text != null)
+            {
+                if (tbUsername.Text != tbPassword.Text)
+                {
+                    Close();
+                }
+                
+            }
         }
     }
 }

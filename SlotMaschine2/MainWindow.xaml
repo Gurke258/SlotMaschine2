@@ -6,4 +6,10 @@
         xmlns:local="clr-namespace:SlotMaschine2"
         xmlns:Properties="clr-namespace:SlotMaschine2.Properties" x:Class="SlotMaschine2.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"/>
+        Title="SlotMaschine 2.0" Height="450" Width="800" >
+    <Grid>
+        
+
+
+    </Grid>
+</Window>
