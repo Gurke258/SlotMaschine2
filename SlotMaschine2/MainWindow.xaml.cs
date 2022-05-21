@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace SlotMaschine2
 {
@@ -25,9 +26,40 @@ namespace SlotMaschine2
             InitializeComponent();
             MainWindow.GetWindow(this);
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            var wnd = new Login();
-            wnd.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            wnd.ShowDialog();
+            //var wnd = new Login();
+            //wnd.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //wnd.ShowDialog();
+            btnshow.Click += Btnshow_Click;
+            btnclose.Click += Btnclose_Click;
+            
         }
+
+        private void Btnclose_Click(object sender, RoutedEventArgs e)
+        {
+            Storyboard sb = Resources["CloseMenu"] as Storyboard;
+            sb.Begin(LeftMenu);
+            CheckMargin();
+        }
+        private void Btnshow_Click(object sender, RoutedEventArgs e)
+        {
+            Storyboard sb = Resources["OpenMenu"] as Storyboard;
+            sb.Begin(LeftMenu);
+            CheckMargin();
+        }
+
+        private void CheckMargin()
+        {
+            if (btnshow.Visibility == Visibility.Visible)
+            {
+                btnshow.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                btnshow.Visibility = Visibility.Visible;
+            }
+        }
+
+
+
     }
 }

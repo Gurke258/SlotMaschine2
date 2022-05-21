@@ -7,9 +7,63 @@
         xmlns:Properties="clr-namespace:SlotMaschine2.Properties" x:Class="SlotMaschine2.MainWindow"
         mc:Ignorable="d"
         Title="SlotMaschine 2.0" Height="450" Width="800" >
+    <Window.Resources>
+
+        <Storyboard x:Key="OpenMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-150,0,0,0" To="0,0,0,0" DecelerationRatio="0.9" Duration="0:0:0.5"/>
+        </Storyboard>
+
+        <Storyboard x:Key="CloseMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-150,0,0,0" DecelerationRatio="0.9" Duration="0:0:0.3"/>
+        </Storyboard>
+
+        <ImageBrush x:Key="AddButtonImageBrush" ImageSource="/images/icons/burger_menu.png" Stretch="UniformToFill"/>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Panel.ZIndex="2" Name="LeftMenu" Orientation="Horizontal" Height="447" HorizontalAlignment="Left" Margin='-150,0,0,0' Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
 
+            <Border BorderBrush="Black" BorderThickness="1" Width="150" Background="Beige">
+                <StackPanel>
+                    <Button Name="btnLogin" Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Login" FontWeight="SemiBold" HorizontalContentAlignment="Left" BorderBrush="AliceBlue"/>
+                    <Button Name="ew" Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Login" FontWeight="SemiBold" HorizontalContentAlignment="Left" BorderBrush="AliceBlue"/>
+                    <Button Name="btnclose" Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Close" FontWeight="SemiBold" HorizontalContentAlignment="Left" BorderBrush="AliceBlue"/>
+                </StackPanel>
+            </Border>
+            <StackPanel Orientation="Vertical">
+                <Grid Margin="0,-5,0,0">
+                    <Button x:Name="btnshow" Width="32" Height="32" BorderThickness="0" ToolTip="Open Menu" Background="{StaticResource AddButtonImageBrush}"  >
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
 
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Rectangle Width="500" Height="239" Fill="Aqua"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="0" Margin="0,0,0,16">
+            <TextBlock>
+                <Label Content="Spielername:"/>
+                <Label Content="Steven"/>
+            </TextBlock>
+            <TextBlock>
+                <Label Content="Punkte:" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox x:Name="tbPoints" Width="95" VerticalAlignment="Center" HorizontalAlignment="Right" Height="20" Margin="0,0,0,3"/>
+            </TextBlock>
+            <TextBlock>
+                <Label Content="Geld:" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox x:Name="tbMoney" Width="95" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Margin="12,0,0,3"/>
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
