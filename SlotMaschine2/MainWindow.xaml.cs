@@ -21,6 +21,9 @@ namespace SlotMaschine2
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -31,23 +34,31 @@ namespace SlotMaschine2
             //wnd.ShowDialog();
             btnshow.Click += Btnshow_Click;
             btnclose.Click += Btnclose_Click;
+            lblUsernameMain.Content = aktuellerUser.logindaten();
             
+        }
+
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            var login = new Login();
+            login.ShowDialog();
         }
 
         private void Btnclose_Click(object sender, RoutedEventArgs e)
         {
             Storyboard sb = Resources["CloseMenu"] as Storyboard;
             sb.Begin(LeftMenu);
-            CheckMargin();
+            ButtonVisibility();
         }
         private void Btnshow_Click(object sender, RoutedEventArgs e)
         {
             Storyboard sb = Resources["OpenMenu"] as Storyboard;
             sb.Begin(LeftMenu);
-            CheckMargin();
+            ButtonVisibility();
         }
 
-        private void CheckMargin()
+        private void  ButtonVisibility()
         {
             if (btnshow.Visibility == Visibility.Visible)
             {

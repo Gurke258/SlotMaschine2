@@ -19,21 +19,40 @@ namespace SlotMaschine2
     /// </summary>
     public partial class Login : Window
     {
+
+        public static string LoginUsername { get; set; }
+
+        public User aktuellerUser = new User();
+
         public Login()
         {
             InitializeComponent();
+
         }
 
-        private void cmdLogin_Click(object sender, RoutedEventArgs e)
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if(tbUsername.Text != "" && tbUsername.Text != null && tbPassword.Text != "" && tbPassword.Text != null)
+            if (tbUsername.Text != "" && tbUsername.Text != null && tbPassword.Text != "" && tbPassword.Text != null)
             {
-                if (tbUsername.Text != tbPassword.Text)
+                if (tbUsername.Text != tbPassword.Text )
                 {
+                    aktuellerUser.logindaten();
                     Close();
                 }
-                
+
             }
+
+
         }
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            var register = new RegisterWindow();
+            register.ShowDialog();
+        }
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
     }
 }

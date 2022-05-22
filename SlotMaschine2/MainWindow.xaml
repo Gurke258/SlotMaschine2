@@ -30,17 +30,20 @@
             <RowDefinition Height="2.5*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Panel.ZIndex="2" Name="LeftMenu" Orientation="Horizontal" Height="447" HorizontalAlignment="Left" Margin='-150,0,0,0' Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
+        <StackPanel Panel.ZIndex="2" Name="LeftMenu" Orientation="Horizontal" Height="250" HorizontalAlignment="Left" Margin='-150,0,0,0' Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
 
             <Border BorderBrush="Black" BorderThickness="1" Width="150" Background="Beige">
                 <StackPanel>
-                    <Button Name="btnLogin" Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Login" FontWeight="SemiBold" HorizontalContentAlignment="Left" BorderBrush="AliceBlue"/>
-                    <Button Name="ew" Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Login" FontWeight="SemiBold" HorizontalContentAlignment="Left" BorderBrush="AliceBlue"/>
+                    <Button Name="btnLogin" Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Login" FontWeight="SemiBold" HorizontalContentAlignment="Left" BorderBrush="AliceBlue" Click="Login_Click"/>
+                    <Button Name="btnPay" Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Einzahlung" FontWeight="SemiBold" HorizontalContentAlignment="Left" BorderBrush="AliceBlue"/>
+                    <Button Name="btnPlayTable" Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Spieltabelle" FontWeight="SemiBold" HorizontalContentAlignment="Left" BorderBrush="AliceBlue"/>
+                    <Button Name="btnInfo" Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Info" FontWeight="SemiBold" HorizontalContentAlignment="Left" BorderBrush="AliceBlue"/>
+                    <Button Name="btnLog" Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Log" FontWeight="SemiBold" HorizontalContentAlignment="Left" BorderBrush="AliceBlue"/>
                     <Button Name="btnclose" Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Close" FontWeight="SemiBold" HorizontalContentAlignment="Left" BorderBrush="AliceBlue"/>
                 </StackPanel>
             </Border>
             <StackPanel Orientation="Vertical">
-                <Grid Margin="0,-5,0,0">
+                <Grid Margin="0,-50,0,0">
                     <Button x:Name="btnshow" Width="32" Height="32" BorderThickness="0" ToolTip="Open Menu" Background="{StaticResource AddButtonImageBrush}"  >
                     </Button>
                 </Grid>
@@ -50,11 +53,14 @@
         <StackPanel Grid.Column="1" Grid.Row="1">
             <Rectangle Width="500" Height="239" Fill="Aqua"/>
         </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <Button x:Name="tbSpin" Content="Spin!" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,40,0,0" Width="80" FontSize="30"/>
+        </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="0" Margin="0,0,0,16">
             <TextBlock>
                 <Label Content="Spielername:"/>
-                <Label Content="Steven"/>
+                <Label x:Name="lblUsernameMain" Content="Steven"/>
             </TextBlock>
             <TextBlock>
                 <Label Content="Punkte:" VerticalAlignment="Center" HorizontalAlignment="Center"/>
