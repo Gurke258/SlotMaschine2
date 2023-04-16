@@ -1,32 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SlotMaschine2
 {
-    public class User : Login
+    public class User : INotifyPropertyChanged
     {
-        public string UserName { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public void Register(string Username, string password)
         {
-            this.UserName = UserName;
+            this.Username = Username;
             this.Password = Password;
         }
 
-        public string logindaten()
+        public string logindaten(string Username, string password)
         {
-            UserName = tbUsername.Text;
-            Password = tbPassword.Text;
-            return UserName;
+            this.Username = Username;
+            this.Password = Password;
+            return Username;
         }
         //private void Login(string username, string password)
         //{
-        //    this.UserName = UserName;
+        //    this.Username = username;
         //    this.Password = Password;
+        //    return Username;
         //}
     }
 }

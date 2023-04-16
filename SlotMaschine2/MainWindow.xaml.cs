@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using System.ComponentModel;
 
 namespace SlotMaschine2
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window 
     {
-
-        
+        //private Login Login { get; set; }
         
         public MainWindow()
         {
@@ -34,7 +34,6 @@ namespace SlotMaschine2
             //wnd.ShowDialog();
             btnshow.Click += Btnshow_Click;
             btnclose.Click += Btnclose_Click;
-            lblUsernameMain.Content = aktuellerUser.logindaten();
             
         }
 
@@ -50,6 +49,9 @@ namespace SlotMaschine2
             Storyboard sb = Resources["CloseMenu"] as Storyboard;
             sb.Begin(LeftMenu);
             ButtonVisibility();
+            Binding binding = new Binding("Text");
+            binding.Source = Login.LoginUsername;
+            lblUsernameMain.SetBinding(TextBlock.TextProperty, binding);
         }
         private void Btnshow_Click(object sender, RoutedEventArgs e)
         {
@@ -69,8 +71,5 @@ namespace SlotMaschine2
                 btnshow.Visibility = Visibility.Visible;
             }
         }
-
-
-
     }
 }
